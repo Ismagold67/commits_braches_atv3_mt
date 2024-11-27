@@ -7,4 +7,5 @@ app_isma = Flask (__name__)
 def raiz():
     return 'Olá, turma!'
 
-app_isma.run()
+if __name__ == "__main__":
+    app_isma.run()
