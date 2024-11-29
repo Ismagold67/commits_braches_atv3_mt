@@ -38,6 +38,13 @@ def dados_usuario():
     dados_usuario = {"profissao":"Estagiário", "disciplina":"Desenvolvimento Web III"}
     return render_template("usuario.html", nome = nome_usuario, dados = dados_usuario)
 
+# Feature código aula 06
+@app_isma.route("/usuario/<nome_usuario>;<nome_profissao>;<nome_disciplina>")
+def usuario(nome_usuario, nome_profissao, nome_disciplina):
+    dados_usuario = {"profissao": nome_profissao, "disciplina": nome_disciplina}
+    return render_template("usuario.html", nome=nome_usuario, dados=dados_usuario)
+
+
 # Feature código aula 02
 if __name__ == "__main__":
     app_isma.run()
