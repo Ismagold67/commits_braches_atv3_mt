@@ -3,9 +3,10 @@ from flask import Flask, render_template
 
 app_isma = Flask (__name__, template_folder='templates')
 
-# Feature código aula 02
-def saudacoes(nome):
-    return f'Olá, {nome}'
+# Feature código aula 02 e aula 06
+@app_isma.route('/<id>')
+def saudacoes(id):
+    return render_template('homepage_nome.html', nome=id)
 
 # Feature código aula 03
 @app_isma.route('/rota1')
