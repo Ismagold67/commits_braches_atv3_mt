@@ -26,6 +26,17 @@ def homepage():
 def contato():
     return render_template("contato.html")
 
+# Feature código aula 05
+@app_isma.route("/index")
+def indice():
+    return render_template("index.html")
+
+@app_isma.route("/usuario")
+def dados_usuario():
+    nome_usuario="Ismael"
+    dados_usuario = {"profissao":"Estagiário", "disciplina":"Desenvolvimento Web III"}
+    return render_template("usuario.html", nome = nome_usuario, dados = dados_usuario)
+
 # Feature código aula 02
 if __name__ == "__main__":
     app_isma.run()
