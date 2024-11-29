@@ -5,9 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style.css')}}">
     <title>Perfil do Usuário</title>
-    {% block scripts %} {% endbloock %}
+    {% block scripts %} {% endblock %}
 </head>
 <body>
+    <div>
+        <img src="https://ifro.edu.br/img/logo-ifro-hotsite.png" alt="logo ifro" width="70" height="70">
+        <br>
+    </div>
+
+    <nav>
+        <a href="/index">Página Inicial</a>
+        <a href="/contato">Contatos</a>
+        <a href="usuario">Perfil do Usuário</a>
+    </nav>
+
+    {% block conteudo %}
+
+    {% endblock }
     
+    <h6>Copyright₢ 2024</h6>
 </body>
 </html>
