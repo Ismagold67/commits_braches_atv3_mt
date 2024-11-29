@@ -2,6 +2,10 @@ from flask import Flask, render_template
 
 app_isma = Flask(__name__)
 
+@app_isma.route("/")
+def homepage():
+    return render_template("homepage.html")
+
 @app_isma.route("/index")
 def indice():
     return render_template("index.html")
