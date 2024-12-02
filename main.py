@@ -14,5 +14,9 @@ def indice():
 def homepage():
     return render_template("homepage.html")
 
+@app_isma.route("/sobre")
+def sobre():
+    return render_template("sobre.html")
+
 if __name__ == "__main__":
     app_isma.run(debug=True)
