@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, flash
 
 app_isma = Flask(__name__)
+app_isma.config["SECRET_KEY"] = "key"
 
 @app_isma.route("/autenticar", methods=["POST"])
 def autenticar():
@@ -8,11 +9,10 @@ def autenticar():
     senha = request.form.get("password")
     
     if verificar_login(usuario, senha):
-        msg = "Login e senha corretos. Acesso permitido!😎"
-        return f"{msg} para {usuario}"
+        return redirect("/homepage")
     else:
-        flash("Dados inválidos")
-        flash("Login ou senha incorretos. Acesso negado!")
+        flash("Dados inválidos", "danger")
+        flash("Login ou senha incorretos. Acesso negado!", "danger")
         return redirect("/login")
     
 tabelaUsuario = {
