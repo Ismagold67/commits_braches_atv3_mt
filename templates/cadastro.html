@@ -6,7 +6,7 @@
     <script>
             function validarForm(event) {
                 event.preventDefault()
-                var usu = document.getElementById("email").value;
+                var usu = document.getElementById("usuario").value;
                 var pwd = document.getElementById("password").value;
                 var confirm_password = document.getElementById("confirm_password").value;
                 var regra = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{6,}$/;
@@ -32,7 +32,7 @@
 <br />
 <form action="/submit" method="POST">
     <label for="nome">Nome completo:</label>
-    <input type="text" id="nome" name="nome" required><br><br>
+    <input type="text" id="usuario" name="usuario" required><br><br>
 
     <label for="nome">CPF</label>
     <input type="text" id="CPF" name="CPF" required><br><br>
