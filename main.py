@@ -1,6 +1,31 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, flash
 
 app_isma = Flask(__name__)
+
+@app_isma.route("/autenticar", methods=["POST"])
+def autenticar():
+    usuario = request.form.get('usuario')
+    senha = request.form.get("password")
+    
+    if verificar_login(usuario, senha):
+        msg = "Login e senha corretos. Acesso permitido!😎"
+        return f"{msg} para {usuario}"
+    else:
+        flash("Dados inválidos")
+        flash("Login ou senha incorretos. Acesso negado!")
+        return redirect("/login")
+    
+tabelaUsuario = {
+    "ismael01": "123@Aavb",
+    "ismael05": "1a2Aq932",
+    "ismael97": "34ACa39@"
+}
+
+def verificar_login(login, senha):
+    if login in tabelaUsuario and tabelaUsuario[login] == senha:
+        return True
+    else:
+        return False
 
 @app_isma.route("/cadastro")
 def cadastro():
