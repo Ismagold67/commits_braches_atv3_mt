@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,15 @@
     {% endblock %}
 </head>
 <body>
+    {% block nav %}
+    <nav>
+        <a href="/homepage">Página Inicial</a>
+        <a href="/contatos">Contatos</a>
+        <a href="/sobre">Sobre</a>
+      </nav>
+    {% endblock %}
     <div>
-        <img src="https://ifro.edu.br/img/logo-ifro-hotsite.png" alt="logo ifro" width="70" height="70">
+        <img src="{{ url_for('static', filename = 'imagens/logoifro.png') }}" alt="logo ifro" width="70" height="70">
         <br>
     </div>
 

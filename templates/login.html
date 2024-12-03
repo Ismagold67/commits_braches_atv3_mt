@@ -1,35 +1,33 @@
 {% extends 'base.html' %}
+{% block nav %}{% endblock %}
 
 {% block scripts %}
 <head>
     <title>Login</title>
-    <script>
-        function validarForm(event) {
-            event.preventDefault()
-            var usu = document.getElementById("usuario").value;
-            var pwd = document.getElementById("password").value;
-            var regra = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{6,}$/;
-
-            if(!regra.test(pwd)) {
-                alert("A senha deve ter no mínimo 6 caracteres, conter pelo menos uma letra maiúscula, um número e um caractere especial.")
-            } else {
-                window.location.href = '/homepage'
-            }
-        }
-    </script>
-</head>
 {% endblock %}
 
 {% block conteudo %}
 
-<form>
-    <label for="nome">Email</label>
-    <input type="text" id="usuario" name="usuario" required><br><br>
+{% set mensagens = get_flashed_messages() %}
+{% if mensagens %}
+<div class="alert alert-danger" role="alert">
+    <ul>
+    {% for msg in mensagens %}
+        <li>{{ msg }}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
 
-    <label for="password">Senha</label>
-    <input type="password" id="password" name="password" required><br><br>
+<form action="/autenticar" method="POST">
+    <br>
+    <label for="usuario">Usuário</label>
+    <input type="text" id="usuario" name="usuario" required oninput="verificarDigitacao(event)">
+    <br>
+    <label for="password">Senha:</label>
+    <input type="password" id="password" name="password" required><br>
 
-    <input type="submit" value="Entrar" onclick="validarForm(event)">
+    <input type="submit" value="Login">
 </form>
 <p>Não possui login? <a href="/cadastro">Criar login</a></p>
 

@@ -9,11 +9,23 @@ def autenticar():
     senha = request.form.get("password")
     
     if verificar_login(usuario, senha):
-        return redirect("/homepage")
+        return render_template("homepage.html", nome=usuario)
     else:
         flash("Dados inválidos", "danger")
         flash("Login ou senha incorretos. Acesso negado!", "danger")
+        flash("Tente usuario: ismael01 senha: 123@Aavb")
         return redirect("/login")
+
+@app_isma.route("/cadastrar", methods=["POST"])
+def cadastrar():
+    usuario = request.form.get('usuario')
+    senha = request.form.get("password")
+    
+    if usuario and senha:
+        return redirect("/login")
+    else:
+        flash("Dados inválidos", "danger")
+        return redirect("/cadastro")
     
 tabelaUsuario = {
     "ismael01": "123@Aavb",
@@ -42,6 +54,10 @@ def homepage():
 @app_isma.route("/sobre")
 def sobre():
     return render_template("sobre.html")
+
+@app_isma.route("/contatos")
+def contatos():
+    return render_template("contatos.html")
 
 if __name__ == "__main__":
     app_isma.run(debug=True)

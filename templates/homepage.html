@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt">
-  <head>
-    <meta charset="utf-8">
-    <title>Homepage</title>
-  </head>
-  <body>
-    <nav>
-      <a href="/homepage">Página Inicial</a>
-      <a href="/contatos">Contatos</a>
-      <a href="/sobre">Sobre</a>
-    </nav>
-    <h3>Seja bem-vindo(a)!</h3>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block conteudo %}
+<h3>Seja bem-vindo(a) {{ nome }}</h3>
+{% endblock %}
+
